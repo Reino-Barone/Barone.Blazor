@@ -9,7 +9,7 @@ namespace Barone.Blazor.Validation;
 public class DefaultOutlet : IValidationOutlet, INotifyPropertyChanged
 {
     bool _isValid = true;
-    readonly List<string> _messages = new();
+    readonly List<string> _messages = [];
     void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
