@@ -1,0 +1,8 @@
+<Project>
+  <PropertyGroup>
+    <RootNamespace>Barone.Blazor</RootNamespace>
+    <PackageId>$(RootNamespace)</PackageId>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+</Project>
