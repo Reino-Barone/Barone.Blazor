@@ -1,5 +1,4 @@
 ﻿using System.Collections.Immutable;
-using System.IO.Pipelines;
 
 namespace Barone.Blazor.Validation;
 
@@ -38,6 +37,7 @@ public class ValidationContext : IValidatable
     /// <returns>The validation result.</returns>
     public (bool IsValid, ImmutableArray<string> Errors) GetValidationResult(int index)
     {
+        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(index, Count, nameof(index));
         ValidationResult result = _validationPairs[index].Validator.Validate(_validationPairs[index].Validatable);
         return (result.IsValid, result.Errors);
     }
