@@ -35,10 +35,9 @@ public class ValidationContext : IValidatable
     /// </summary>
     /// <param name="index">The index of the item.</param>
     /// <returns>The validation result.</returns>
-    public (bool IsValid, ImmutableArray<string> Errors) GetValidationResult(int index)
+    public ValidationResult GetValidationResult(int index)
     {
         ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(index, Count, nameof(index));
-        ValidationResult result = _validationPairs[index].Validator.Validate(_validationPairs[index].Validatable);
-        return (result.IsValid, result.Errors);
+        return _validationPairs[index].Validator.Validate(_validationPairs[index].Validatable);
     }
 }
